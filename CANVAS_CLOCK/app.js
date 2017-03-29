@@ -87,7 +87,7 @@ canvas.height = 900;
 canvas.width = 1200;
 //canvas.height = 450;
 //canvas.width = 600;
-canvas.style.border = "solid 1px black";
+canvas.style.border = "solid 0px black";
 
 var center = { x: canvas.width / 2, y : canvas.height / 2 }
 var offSet = 75;
