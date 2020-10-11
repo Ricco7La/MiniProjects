@@ -46,6 +46,17 @@ Enemy.prototype.move = function() {
 	_self.container.position.x -= 0.25;
 	
 	if (_self.container.position.x < 0 - _self.width/2) {
-		_self.destroy(true);
+		_self.destroy();
 	}
 } 
+
+Enemy.prototype.destroy = function(){
+	var _self = this;
+
+	
+	var index = bonusArray.indexOf(_self);
+	if (index > -1) { bonusArray.splice(index, 1);}
+
+	var indexContainer = stage.getChildIndex(_self.container);
+	stage.removeChildAt(indexContainer);
+};

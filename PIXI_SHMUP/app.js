@@ -71,7 +71,7 @@ var explosionFrame = [];
 
 var perso ;
 var enemies = [];
-var bonus =[];
+var bonusArray =[];
 
 function addEnemy () {
 	if (isActive) {
@@ -105,8 +105,8 @@ var animation = function() {
 		enemies[j].move();
 	}
 
-	for(var k = 0; k < bonus.length; k++){
-		bonus[k].move();
+	for(var k = 0; k < bonusArray.length; k++){
+		bonusArray[k].move();
 	}
 
 	if(perso.life <=0) {
@@ -193,8 +193,9 @@ function initialiseHearth(int) {
 }
 function bonus() {
 	if (isActive) {
-		var bonus = new Bonus();
-		bonus.create(stage, bonusType[MathUtil.rndIntRange(0,bonusType.length)]);
+		var b = new Bonus();
+		b.create(stage, bonusType[MathUtil.rndIntRange(0,bonusType.length)]);
+		bonusArray.push(b);
 	}
 	
 	setTimeout(bonus, MathUtil.rndIntRange(15000,90000));
