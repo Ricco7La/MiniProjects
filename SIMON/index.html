@@ -5,6 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>SIMON</title>
 	<link rel="stylesheet" href="style.css">
+	<link href="all.css" rel="stylesheet">
 </head>
 <body>	
 	<audio id="sounds-1" preload>
@@ -46,6 +47,10 @@
 			<div class="footer tb">
 				<div class='tb-cell'>	
 					<div>Niveau : <span id="current-level">1</span></div>
+					<div id="soundToggle">
+						<i id="soundON" class="fas fa-volume-up"></i>
+						<i id="soundOFF" class="fas fa-volume-mute" display="none"></i>
+					</div>
 					<div>Vies : <span id="lifes">3</span></div>
 				</div>
 			</div>

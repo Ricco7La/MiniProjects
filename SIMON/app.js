@@ -38,6 +38,8 @@ var middleTimer = 500;
 var longTimer = 1000;
 var timerBetweenTurn = 1500;
 
+var soundEnabled = true;
+
 var life = 3;
 
 var simon = [];
@@ -52,6 +54,8 @@ var simonCounter = 0;
 var playerCounter = 0;
 
 var play = function() {
+	document.getElementById("soundOFF").style.display = "none";
+	
 	homePage.classList.toggle("active");
 	gamePage.classList.toggle("active");
 
@@ -97,7 +101,7 @@ var playSimon = function() {
 		return record();
 	} else {
 		console.log(simon[counter]);
-		sounds[simon[counter]].play();
+		if (soundEnabled) {sounds[simon[counter]].play()};
 		buttons[simon[counter]].classList.add("active");
 		setTimeout(cleanButtons, middleTimer);
 		counter++;
@@ -110,10 +114,22 @@ var record = function() {
 	simonIsPlaying = false;	
 }
 
+var toggleSound = function() {
+	if (soundEnabled) {
+		soundEnabled = false;
+		document.getElementById("soundON").style.display = "none";
+		document.getElementById("soundOFF").style.display = "inline";
+	} else {
+		soundEnabled = true;
+		document.getElementById("soundON").style.display = "inline";
+		document.getElementById("soundOFF").style.display = "none";
+	}
+}
+
 var recordClick = function(e) {
 		if (!simonIsPlaying) {
 			var int = getNumber(e.target.id);
-			sounds[int].play();
+			if (soundEnabled) {sounds[int].play()};
 			buttons[int].classList.add("active");
 			setTimeout(cleanButtons, shortTimer);
 			playerRecord.push(int);
@@ -141,6 +157,9 @@ var recordClick = function(e) {
 		}
 	};
 
-document.getElementById("play").addEventListener("click", play)
-document.getElementById("replay").addEventListener("click", playAgain)
-colors.addEventListener("click", recordClick, false )
+
+
+document.getElementById("play").addEventListener("click", play);
+document.getElementById("replay").addEventListener("click", playAgain);
+colors.addEventListener("click", recordClick, false );
+document.getElementById("soundToggle").addEventListener("click", toggleSound)
