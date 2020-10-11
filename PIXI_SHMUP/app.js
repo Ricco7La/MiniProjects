@@ -106,7 +106,7 @@ var animation = function() {
 
 	if(dead) {
 		gameOver(points);
-	} else {}
+	} else {
 		showPoints(points);
 	}
 
