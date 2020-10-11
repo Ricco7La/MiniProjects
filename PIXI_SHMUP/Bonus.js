@@ -6,7 +6,7 @@ var Bonus = function() {
 		P : Points
 	*/
 	_self.type ;
-	_self.radius = 15;
+	_self.radius = 0;
 	_self.timer = MathUtil.rndIntRange(5000,1500);
 	
 	
