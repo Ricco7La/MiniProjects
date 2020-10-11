@@ -104,7 +104,7 @@ var animation = function() {
 		enemies[j].move();
 	}
 
-	if(dead) {
+	if(perso.life <=0) {
 		gameOver(points);
 	} else {
 		showPoints(points);
