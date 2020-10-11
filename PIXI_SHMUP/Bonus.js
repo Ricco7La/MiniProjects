@@ -6,7 +6,7 @@ var Bonus = function() {
 		P : Points
 	*/
 	_self.type ;
-	_self.radius = 0;
+	_self.radius = 15; //15
 	_self.timer = MathUtil.rndIntRange(5000,1500);
 	
 	
@@ -34,9 +34,18 @@ Bonus.prototype.create = function(stage,type){
 	}
 
 	_self.container = new PIXI.Container();
-	_self.container.position.x = 400;
-	_self.container.position.y = 400;
+	_self.container.position.x = stageWidth - _self.width/2 ;
+	_self.container.position.y = (MathUtil.rndRange(0,stageHeight) - _self.height/2) - 100 ;
 	_self.container.addChild(_self.circle);
 
 	stage.addChild(_self.container);
 };
+
+Enemy.prototype.move = function() {
+	var _self = this;
+	_self.container.position.x -= 0.25;
+	
+	if (_self.container.position.x < 0 - _self.width/2) {
+		_self.destroy(true);
+	}
+} 

@@ -71,6 +71,7 @@ var explosionFrame = [];
 
 var perso ;
 var enemies = [];
+var bonus =[];
 
 function addEnemy () {
 	if (isActive) {
@@ -102,6 +103,10 @@ var animation = function() {
 	}
 	for(var j = 0; j < enemies.length; j++){
 		enemies[j].move();
+	}
+
+	for(var k = 0; k < bonus.length; k++){
+		bonus[k].move();
 	}
 
 	if(perso.life <=0) {
