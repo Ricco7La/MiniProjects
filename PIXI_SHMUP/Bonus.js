@@ -41,7 +41,7 @@ Bonus.prototype.create = function(stage,type){
 	stage.addChild(_self.container);
 };
 
-Enemy.prototype.move = function() {
+Bonus.prototype.move = function() {
 	var _self = this;
 	_self.container.position.x -= 0.25;
 	
@@ -50,7 +50,7 @@ Enemy.prototype.move = function() {
 	}
 } 
 
-Enemy.prototype.destroy = function(){
+Bonus.prototype.destroy = function(){
 	var _self = this;
 
 	
