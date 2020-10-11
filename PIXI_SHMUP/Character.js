@@ -35,7 +35,7 @@ Character.prototype.create = function(stage,x,y){
 };
 Character.prototype.move = function() {
 	var _self = this;
-	
+	if (_self.life <= 0) { return null; }
 	if ( up &&  _self.container.position.y > 0 + _self.height/2) {
 		//console.log("u");
 		//console.log(_self.container);
@@ -54,6 +54,7 @@ Character.prototype.move = function() {
 }
 Character.prototype.hit = function() {
 	var _self = this;
+	if (_self.life <= 0) { return null; }
 	for(var k = 0; k < enemies.length; k++){
 		var ennemy = enemies[k];
 		var hitting = MathUtil.hitTest(_self.container.position.x,
@@ -85,7 +86,7 @@ Character.prototype.hit = function() {
 } 
 Character.prototype.shoot = function(){
 	var _self = this;
-
+	if (_self.life <= 0) { return null; }
 	if (space && _self.canShoot) {
 		_self.canShoot = false;
 		setTimeout(function () {

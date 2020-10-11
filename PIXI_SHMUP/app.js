@@ -92,6 +92,7 @@ var animation = function() {
 	perso.move();
 	perso.shoot();
 	var dead = perso.hit();
+	
 	for(var i = 0; i < perso.bullets.length; i++){
 		var hitting = perso.bullets[i].hit();
 		if (!hitting) {
@@ -103,7 +104,11 @@ var animation = function() {
 		enemies[j].move();
 	}
 
-	showPoints(points);
+	if(dead) {
+		gameOver(points);
+	} else {}
+		showPoints(points);
+	}
 
 	renderer.render(stage);
 
@@ -170,6 +175,10 @@ function moveParalax() {
 function showPoints(int) {
 	richText.text = 'Points : ' + int + 'pts';
 }
+function gameOver(int) {
+	richText.text = 'Game Over : ' + int + 'pts';
+}
+
 function initialiseHearth(int) {
 	for(var i = 0; i < int; i++){
 		hearts.push(new PIXI.Sprite.fromImage('images/hearth.png'));
