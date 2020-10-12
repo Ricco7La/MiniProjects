@@ -15,6 +15,7 @@ body {
 	background: black;
 	overflow: hidden;
 	position: relative;
+	margin: auto;
 }
 .screen {
 	position: absolute;
@@ -115,4 +116,8 @@ body {
 	display: block;
 	font-size: 200px;
 	margin-top: 40px;
+}
+
+.hidden {
+	display: none;
 }

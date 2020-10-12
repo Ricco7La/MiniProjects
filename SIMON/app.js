@@ -54,8 +54,6 @@ var simonCounter = 0;
 var playerCounter = 0;
 
 var play = function() {
-	document.getElementById("soundOFF").style.display = "none";
-	
 	homePage.classList.toggle("active");
 	gamePage.classList.toggle("active");
 
@@ -117,12 +115,12 @@ var record = function() {
 var toggleSound = function() {
 	if (soundEnabled) {
 		soundEnabled = false;
-		document.getElementById("soundON").style.display = "none";
-		document.getElementById("soundOFF").style.display = "inline";
+		document.getElementById("soundON").className  = "hidden";
+		document.getElementById("soundOFF").className = "";
 	} else {
 		soundEnabled = true;
-		document.getElementById("soundON").style.display = "inline";
-		document.getElementById("soundOFF").style.display = "none";
+		document.getElementById("soundON").className = "";
+		document.getElementById("soundOFF").className = "hidden";
 	}
 }
 
